@@ -1,5 +1,9 @@
 <?php error_reporting( E_ALL & ~E_WARNING); ?>
 <?php
+/*
+* Call getNearestMail($url) with dynemic Url returns Nearest Mailbox Details with Address as Array
+*/
+
 echo "<pre>";
 print_r(getNearestMail("https://www.postnl.nl/services/adreskenmerken/api/GetLocationsSidebar?criterium=0&product=2&swLat=52.47133944221238&swLng=4.807203958543369&neLat=52.47558735022358&neLng=4.819005678208896&apikey=e9b6ea2efe17510f"));
 echo "</pre>";
