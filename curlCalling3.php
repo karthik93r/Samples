@@ -4,15 +4,22 @@ $address = 'Weefhuispad+1,zaandijk';
 $latlang = getLocationLatLan($address);
 
 echo "<pre>";
-print_r(getNearestMail($latlang['lat'],$latlang['lng']));
+print_r($latlang);
 echo "</pre>";
+
+$lat = $latlang['lat'];
+$lng = $latlang['lng'];
+echo "<pre>";
+print_r(getNearestMail($lat,$lng));
+echo "</pre>";
+
+
+/*echo "<pre>";
+print_r(getNearestMail1("https://www.postnl.nl/services/adreskenmerken/api/GetLocationsSidebar?criterium=0&product=2&swLat=52.47133944221238&swLng=4.807203958543369&neLat=52.47558735022358&neLng=4.819005678208896&apikey=e9b6ea2efe17510f"));
+echo "</pre>";*/
 
 /*
 * Call getNearestMail($url) with dynemic Url returns Nearest Mailbox Details with Address as Array
-
-echo "<pre>";
-print_r(getNearestMail1("https://www.postnl.nl/services/adreskenmerken/api/GetLocationsSidebar?criterium=0&product=2&swLat=52.47133944221238&swLng=4.807203958543369&neLat=52.47558735022358&neLng=4.819005678208896&apikey=e9b6ea2efe17510f"));
-echo "</pre>";
 
 $latitude = '52.47133944221238';
 $longitude= '4.807203958543369';
@@ -64,10 +71,7 @@ function getNearestMail1($url) {
 }
 
 function getNearestMail($latitude,$langitude) {
-	$url = "https://www.postnl.nl/services/adreskenmerken/api/GetLocationsSidebar?criterium=0&product=2&swLat=".$latitude."&swLng=".$langitude."&neLat=".$latitude."&neLng=".$langitude."&apikey=e9b6ea2efe17510f";
-	echo "<pre>";
-	print_r($url);
-	echo "</pre>";
+	$url = "https://www.postnl.nl/services/adreskenmerken/api/GetLocationsSidebar?criterium=0&product=2&swLat=".($latitude-0.02)."&swLng=".($langitude-0.02)."&neLat=".($latitude+0.02)."&neLng=".($langitude+0.02)."&apikey=e9b6ea2efe17510f";
 	$ch = curl_init();
 	$curlConfig = array(
 		CURLOPT_URL            => $url,
