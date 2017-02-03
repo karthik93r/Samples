@@ -1,3 +1,11 @@
+<?php 
+	/********************************************************
+	*	Auther: Getmyteam4u									*
+	*	Contact: getmyteam4u@gmail.com						*
+	*	Freelauncher: Getmyteam4u							*
+	*********************************************************/
+	error_reporting( E_ALL & ~E_WARNING); 
+?>
 <?php
 /***Useing*Google*Map**/
 /*you can give address*/
